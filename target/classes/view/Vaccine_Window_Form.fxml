@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1112.0" style="-fx-background-color: #dfe4ea; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0); fx-border-color: black; -fx-border-radius: 50px; -fx-border-width: 5px; -fx-border-color: black; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.lastproject.controller.VaccineWindowFormController">
+   <children>
+      <Label layoutX="459.0" layoutY="15.0" prefHeight="35.0" prefWidth="217.0" style="-fx-background-color: FEF9A7; -fx-background-radius: 45;" text="     Vaccine Form" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="414.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="62.0" text="Vaccine ID :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="105.0" prefHeight="19.0" prefWidth="104.0" text="Vaccine Name :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="191.0" text="No Dose :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="150.0" text="Descriptio :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="btnVaccineID" layoutX="146.0" layoutY="57.0" onAction="#vaccineIdSerchOnAction" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="btnVaccineName" layoutX="146.0" layoutY="100.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="btnVaccineDescription" layoutX="146.0" layoutY="145.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="bntNoDose" layoutX="146.0" layoutY="186.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <Button layoutX="647.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnSaveOnAction" style="-fx-background-color: #00FFFF;" text="save">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="723.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #7bed9f;" text="update">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TableView fx:id="tableSaveVaccine" layoutX="125.0" layoutY="300.0" prefHeight="265.0" prefWidth="679.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="201.0">
+         <columns>
+            <TableColumn fx:id="colVaccineId" prefWidth="90.0" text="Vaccine ID" />
+            <TableColumn fx:id="colVaccineName" prefWidth="178.0" text="Vaccine Name" />
+            <TableColumn fx:id="colDescription" prefWidth="263.0" text="Description" />
+            <TableColumn fx:id="colNoDose" prefWidth="65.0" text="NO Dose" />
+            <TableColumn fx:id="colstock" prefWidth="65.0" text="Stocks " />
+         </columns>
+      </TableView>
+      <Button layoutX="842.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnDeletOnAction" style="-fx-background-color: #ff6348;" text="Delet">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="bntStocks" layoutX="146.0" layoutY="226.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <Label layoutX="28.0" layoutY="232.0" text="Stocks :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

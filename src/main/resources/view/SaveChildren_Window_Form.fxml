@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1112.0" style="-fx-background-color: #dfe4ea; -fx-background-radius: 50; -fx-border-color: black; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); -fx-border-width: 5px; -fx-border-radius: 50px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.lastproject.controller.SaveChildrenWindowFormController">
+   <children>
+      <Label layoutX="479.0" layoutY="12.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: FEF9A7; -fx-background-radius: 45;" text="     Children Form" AnchorPane.leftAnchor="474.0" AnchorPane.rightAnchor="370.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="61.0" text="Children ID :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="105.0" prefHeight="19.0" prefWidth="66.0" text="Name  :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="565.0" layoutY="191.0" text="Midwife ID :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="315.0" text="Hospital :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="150.0" text="Birth Day :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="570.0" layoutY="105.0" text="Father Name :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="191.0" text="Gender :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="567.0" layoutY="150.0" prefHeight="9.0" prefWidth="56.0" text="Address :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="273.0" text="Birth Weight :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="572.0" layoutY="61.0" text="Mother Name :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="229.0" text="Age :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtChildrenID" layoutX="116.0" layoutY="56.0" onAction="#childrenIdSerchOnAction" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtName" layoutX="116.0" layoutY="100.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtBirthDay" layoutX="116.0" layoutY="145.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtGender" layoutX="116.0" layoutY="186.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtAge" layoutX="116.0" layoutY="227.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtBirthWeight" layoutX="116.0" layoutY="268.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtHospital" layoutX="116.0" layoutY="310.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtMotherName" layoutX="686.0" layoutY="56.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtFatherName" layoutX="686.0" layoutY="100.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtAddress" layoutX="686.0" layoutY="145.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <TextField fx:id="txtMidwifeID" layoutX="686.0" layoutY="186.0" prefHeight="29.0" prefWidth="268.0" stylesheets="@../style/txtFeld.css" />
+      <Button layoutX="736.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnChildrenSaveOnAction" style="-fx-background-color: #00FFFF;" text="save">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="808.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #7bed9f;" text="update">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="921.0" layoutY="296.0" mnemonicParsing="false" onAction="#btmDeletOnAction" style="-fx-background-color: #ff6348;" text="Delet">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TableView fx:id="tabelSaveChildren" layoutX="13.0" layoutY="344.0" onMouseClicked="#tableChildrenOnMouseClicked" prefHeight="225.0" prefWidth="974.0">
+        <columns>
+          <TableColumn fx:id="colChildrenID" prefWidth="75.0" text="Children ID" />
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colBod" prefWidth="75.0" text="Birth Day" />
+            <TableColumn fx:id="colGender" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="colAge" prefWidth="60.0" text="Age" />
+            <TableColumn fx:id="colBirthWeight" prefWidth="90.0" text="Birth Weight" />
+            <TableColumn fx:id="colHospital" prefWidth="75.0" text="Hospital" />
+            <TableColumn fx:id="colMotherName" prefWidth="137.0" text="Mother Name" />
+            <TableColumn fx:id="colFatherName" prefWidth="112.0" text="Father Name" />
+            <TableColumn fx:id="colAddress" prefWidth="121.0" text="Adress" />
+            <TableColumn fx:id="colMidwifeId" prefWidth="78.0" text="Midwife ID" />
+        </columns>
+      </TableView>
+      <Label layoutX="450.0" layoutY="306.0" text="Members :" textFill="#b52020">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="count" layoutX="550.0" layoutY="306.0" text="count">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

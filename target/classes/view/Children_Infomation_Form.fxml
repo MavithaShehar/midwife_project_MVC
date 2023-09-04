@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" prefHeight="650.0" prefWidth="1112.0" style="-fx-background-color: #dfe4ea; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50px; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.lastproject.controller.ChildrenInfomationFormController">
+   <children>
+      <Label layoutX="420.0" layoutY="12.0" prefHeight="35.0" prefWidth="327.0" style="-fx-background-color: FEF9A7; -fx-background-radius: 45;" text="     Children Infomation" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="370.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="59.0" prefHeight="19.0" prefWidth="70.0" text="Input ID :">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="79.0" layoutY="54.0" onAction="#inputIdSerchOnAction" stylesheets="@../style/txtFeld.css" />
+      <TableView fx:id="tabelChilData" layoutX="18.0" layoutY="103.0" prefHeight="89.0" prefWidth="980.0" style="-fx-border-color: red;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <columns>
+            <TableColumn fx:id="colName" prefWidth="69.0" text="Name" />
+            <TableColumn fx:id="colbod" prefWidth="85.0" text="Birth Day" />
+            <TableColumn fx:id="colGender" prefWidth="56.0" text="Gender" />
+            <TableColumn fx:id="colAge" prefWidth="54.0" text="Age" />
+            <TableColumn fx:id="colBirthWeight" prefWidth="89.0" text="Birth Weight" />
+            <TableColumn fx:id="colHospital" prefWidth="84.0" text="Hospital" />
+            <TableColumn fx:id="colMotherName" prefWidth="120.0" text="Mother Name" />
+            <TableColumn fx:id="colfatherName" minWidth="0.0" prefWidth="128.0" text="Father Name" />
+            <TableColumn fx:id="colAddress" prefWidth="114.0" text="Adress" />
+            <TableColumn fx:id="colMidwifeId" minWidth="0.0" prefWidth="79.0" text="Midwife ID" />
+            <TableColumn fx:id="colMidwifeName" minWidth="0.0" prefWidth="107.0" text="Midwife Name" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tabelVaccData" layoutX="12.0" layoutY="209.0" prefHeight="135.0" prefWidth="935.0" style="-fx-border-color: red;" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0">
+         <columns>
+            <TableColumn fx:id="colVaccName" prefWidth="108.0" text="Vaccine Name" />
+            <TableColumn fx:id="colVaccineId" prefWidth="97.0" text="Vaccine ID" />
+            <TableColumn fx:id="colDescription" prefWidth="145.0" text="Description" />
+            <TableColumn fx:id="colNoOfDose" minWidth="0.0" prefWidth="157.0" text="NO Of Dose" />
+            <TableColumn fx:id="colDose" prefWidth="82.0" text="Dose" />
+            <TableColumn fx:id="colNewAge" prefWidth="72.0" text="age" />
+            <TableColumn fx:id="colDate" prefWidth="134.0" text="Date " />
+            <TableColumn fx:id="colNextDate" prefWidth="134.0" text="Next Date" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tabelBmiData" layoutX="17.0" layoutY="358.0" prefHeight="215.0" prefWidth="661.0" style="-fx-border-color: red;" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="223.0">
+         <columns>
+            <TableColumn fx:id="colBmiDate" prefWidth="130.0" text="Date" />
+            <TableColumn fx:id="colWeight" prefWidth="85.0" text="Weight (Kg)" />
+            <TableColumn fx:id="colHeight" prefWidth="102.0" text="Height (m)" />
+            <TableColumn fx:id="colBmiAge" minWidth="0.0" prefWidth="61.0" text="age" />
+            <TableColumn fx:id="colBmiValue" prefWidth="78.0" text="BMI Valiue" />
+            <TableColumn fx:id="colBmiType" prefWidth="94.0" text="BMI Type" />
+            <TableColumn fx:id="colTripo" prefWidth="104.0" text="Triposha count" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

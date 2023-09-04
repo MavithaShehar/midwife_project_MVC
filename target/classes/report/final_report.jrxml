@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="final_report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a076d41e-71fe-43c5-9cc1-c909d8f12918">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT YEAR(date) AS year, SUM(CASE WHEN bmiType < 18.5 THEN 1 ELSE 0 END) AS underweightCount,
+                 SUM(CASE WHEN bmiType >= 18.5 AND bmiType < 24.9 THEN 1 ELSE 0 END) AS healthlyCount,
+                SUM(CASE WHEN bmiType >= 25 AND bmiType < 29.9 THEN 1 ELSE 0 END) AS overweightCount,
+                 SUM(CASE WHEN bmiType >= 30 AND bmiType < 39.9 THEN 1 ELSE 0 END) AS obeseCount,
+                SUM(CASE WHEN bmiType >= 40 THEN 1 ELSE 0 END) AS severelyObese,
+                 SUM(triposha) AS triposha,
+                 COUNT(*) AS totalCount
+                FROM bmi
+                GROUP BY YEAR(date)]]>
+	</queryString>
+	<field name="year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="year"/>
+		<property name="com.jaspersoft.studio.field.label" value="year"/>
+	</field>
+	<field name="underweightCount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="underweightCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="underweightCount"/>
+	</field>
+	<field name="healthlyCount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="healthlyCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="healthlyCount"/>
+	</field>
+	<field name="overweightCount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="overweightCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="overweightCount"/>
+	</field>
+	<field name="obeseCount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="obeseCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="obeseCount"/>
+	</field>
+	<field name="severelyObese" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="severelyObese"/>
+		<property name="com.jaspersoft.studio.field.label" value="severelyObese"/>
+	</field>
+	<field name="triposha" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="triposha"/>
+		<property name="com.jaspersoft.studio.field.label" value="triposha"/>
+	</field>
+	<field name="totalCount" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="totalCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="totalCount"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="300" y="10" width="170" height="40" uuid="6127c8b2-12d7-40da-a667-bf24c7122868"/>
+				<textElement>
+					<font size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Final Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="670" y="10" width="130" height="30" uuid="02e77322-ebd4-4fac-975d-124b917a85ef"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="30" uuid="af2aad8e-6e2d-40fa-b492-d8c47cbec10a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="661a774c-2a2e-4a7b-a562-cc95ea3efd5f"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="100" height="30" uuid="95fb0f69-03a2-41ee-a3e1-32b7f75d015b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f02ead37-5810-45d5-84db-f6f427b9eff7"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UnderweightCount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="2" width="122" height="30" uuid="b36782d1-8223-42a8-83c7-811e1c35201c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="077d479f-123c-47e8-b484-83ce2f1026c7"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Healthly Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="2" width="100" height="30" uuid="e93b0f18-d610-455a-a72e-1760e4559ae4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07955c5d-c400-4713-b3f5-6e4ceaf2eeae"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Overweight Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="3" width="100" height="30" uuid="39de6ac2-bdb2-4d5a-bbac-2c864627bfd2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3434a339-cbab-45ce-814d-3713d3fd5f93"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Obese Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="2" width="118" height="30" uuid="6a4256c5-ab79-46ba-9267-412b18711316">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c87ea0ae-09d3-425e-bbc8-e1dbdcb778d6"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[severelyObese]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="2" width="70" height="30" uuid="76bad2f7-8ce0-4e67-bcb6-8c391dc13ff2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b80e878f-c4e8-4a98-8f8d-655f5a97ca76"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Triposha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="2" width="90" height="30" uuid="fd7a7eee-23d1-44dc-a835-321f5bfa9977">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d1902ba-41b3-49b0-9a88-139f46a89d7c"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[totalCount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="102" height="30" uuid="6c17443a-c9a9-4d22-8b84-292dacac3bc5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="661a774c-2a2e-4a7b-a562-cc95ea3efd5f"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="0" width="100" height="30" uuid="da709bd8-d7fb-49aa-adef-817f5b61e63a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f02ead37-5810-45d5-84db-f6f427b9eff7"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{underweightCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="100" height="30" uuid="75d434c1-ea0c-45bf-824e-c3b39993e3a5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="077d479f-123c-47e8-b484-83ce2f1026c7"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{healthlyCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="0" width="100" height="30" uuid="c39fb78c-f255-4a85-8443-c3071090475e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07955c5d-c400-4713-b3f5-6e4ceaf2eeae"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{overweightCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="0" width="100" height="30" uuid="a6af4f38-661f-4e8e-9fa1-4773eb7442da">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3434a339-cbab-45ce-814d-3713d3fd5f93"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obeseCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="534" y="0" width="100" height="30" uuid="22824e72-8769-442f-a616-7fe3f8ad7ffa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c87ea0ae-09d3-425e-bbc8-e1dbdcb778d6"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{severelyObese}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="657" y="0" width="85" height="30" uuid="f42acb21-b9aa-48c7-8963-d8c1463814bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b80e878f-c4e8-4a98-8f8d-655f5a97ca76"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{triposha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="745" y="0" width="75" height="30" uuid="4a0b1b99-67d0-481f-9979-d774dec247a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d1902ba-41b3-49b0-9a88-139f46a89d7c"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="4" width="115" height="30" uuid="a9fa8655-0741-458f-8a26-d5ee96b62c30"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sign here]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="50" width="100" height="15" uuid="d6a98dca-294a-4252-a899-12be91ba2b92"/>
+				<text><![CDATA[...............................]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parameter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="beb2336c-e08c-4238-a41e-daf2978d1cde">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<parameter name="paramChildrenId" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from children where childrenId =  $P{paramChildrenId}]]>
+	</queryString>
+	<field name="midwifeId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="midwifeId"/>
+		<property name="com.jaspersoft.studio.field.label" value="midwifeId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="childrenId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="childrenId"/>
+		<property name="com.jaspersoft.studio.field.label" value="childrenId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="bod" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="bod"/>
+		<property name="com.jaspersoft.studio.field.label" value="bod"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gender"/>
+		<property name="com.jaspersoft.studio.field.label" value="gender"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="age" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="age"/>
+		<property name="com.jaspersoft.studio.field.label" value="age"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="birthweight" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="birthweight"/>
+		<property name="com.jaspersoft.studio.field.label" value="birthweight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="hospital" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="hospital"/>
+		<property name="com.jaspersoft.studio.field.label" value="hospital"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="motherName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="motherName"/>
+		<property name="com.jaspersoft.studio.field.label" value="motherName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="fatherName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fatherName"/>
+		<property name="com.jaspersoft.studio.field.label" value="fatherName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="30" uuid="d2dcaa39-7935-4179-9061-60022a88c0c6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c10205fb-4c2e-4248-beca-efcc90ce2896"/>
+				</reportElement>
+				<text><![CDATA[childrenId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="30" uuid="347840cc-6b5e-442f-91cf-9ba4dcd9771e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f862ce7-0c5a-4056-9fd3-eb431f1c42ef"/>
+				</reportElement>
+				<text><![CDATA[name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="30" uuid="0106ace3-e03f-4cb1-b7ae-4dc10d28469f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2caea8ee-548b-4abc-8ef0-76818ee5c67a"/>
+				</reportElement>
+				<text><![CDATA[bod]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="30" uuid="30c0fc47-440e-4423-9097-fee302509791">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c10205fb-4c2e-4248-beca-efcc90ce2896"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{childrenId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="30" uuid="6f44cb64-64e6-4a96-807a-df4999aff876">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f862ce7-0c5a-4056-9fd3-eb431f1c42ef"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="30" uuid="841c22a6-32f1-4caa-87be-48890c6e0847">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2caea8ee-548b-4abc-8ef0-76818ee5c67a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{bod}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Vaccine_Report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7eb28c4-085b-46fa-a568-b66ff140c0ef">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="264"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="725"/>
+	<parameter name="selectYear" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT c.childrenId,c.name,DATE_FORMAT(c.bod,'%Y-%m-%d') as bod,c.gender,b.vacId,
+                v.vacName,v.description,v.noDose,b.dose,DATE_FORMAT( b.date,'%Y-%m-%d') as date,b.age
+                FROM children c
+                INNER JOIN baby_vaccine b ON c.childrenId = b.childrenId
+                INNER JOIN vaccine v ON b.vacId = v.vacId
+                WHERE YEAR(date) = $P{selectYear}]]>
+	</queryString>
+	<field name="childrenId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="childrenId"/>
+		<property name="com.jaspersoft.studio.field.label" value="childrenId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="bod" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bod"/>
+		<property name="com.jaspersoft.studio.field.label" value="bod"/>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gender"/>
+		<property name="com.jaspersoft.studio.field.label" value="gender"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="children"/>
+	</field>
+	<field name="vacId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="vacId"/>
+		<property name="com.jaspersoft.studio.field.label" value="vacId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="baby_vaccine"/>
+	</field>
+	<field name="vacName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="vacName"/>
+		<property name="com.jaspersoft.studio.field.label" value="vacName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vaccine"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="description"/>
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vaccine"/>
+	</field>
+	<field name="noDose" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="noDose"/>
+		<property name="com.jaspersoft.studio.field.label" value="noDose"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vaccine"/>
+	</field>
+	<field name="dose" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="dose"/>
+		<property name="com.jaspersoft.studio.field.label" value="dose"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="baby_vaccine"/>
+	</field>
+	<field name="date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="baby_vaccine"/>
+	</field>
+	<field name="age" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="age"/>
+		<property name="com.jaspersoft.studio.field.label" value="age"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="baby_vaccine"/>
+	</field>
+	<group name="childrenId">
+		<groupExpression><![CDATA[$F{childrenId}]]></groupExpression>
+	</group>
+	<group name="vacId">
+		<groupExpression><![CDATA[$F{vacId}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<textField>
+				<reportElement x="235" y="42" width="368" height="56" uuid="6ac681da-82f1-49ba-8f4f-e292b3c8e16e"/>
+				<textElement>
+					<font size="25" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Vaccine Repot of Year"]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="662" y="80" width="100" height="30" uuid="957b59f7-5479-4848-a2c7-f37f0366eb86"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="-13" y="9" width="80" height="30" uuid="7a0610f4-1398-4bb5-b22b-e2dd3d80efa5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90ae1bb6-ccad-4183-86d5-df6d59149ef7"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Children ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="8" width="62" height="30" uuid="900cf32a-8555-4782-af85-5ce20c9bec19">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="800ae977-f5ac-4704-ac10-8a00334515f4"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="8" width="36" height="30" uuid="dcc3f567-4864-42d8-b992-47fa862f77dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22c2dfee-110a-4572-bb0c-1ff58bd1aaab"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bod]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="8" width="52" height="30" uuid="95438c62-6d7b-468f-9398-d8e9722ee24e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fda39422-1b4c-419e-bd5f-05ef09d933b1"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="8" width="76" height="30" uuid="4a7e0ed4-6efb-4344-9dc8-5ee0e10c6af2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5a15c10-007f-43c7-8632-2fef16ca0f61"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vaccine ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="8" width="72" height="30" uuid="8835d140-a570-4efb-a1f9-18b2bb0e0891">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17700c3e-0a99-44df-97ad-547c0d5d56bf"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vac_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="8" width="72" height="30" uuid="d1d8cf05-9e7a-4713-8758-c9779bfad24a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3a0f46b2-cf09-41c3-84ed-10e84661adde"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="8" width="75" height="30" uuid="5310df26-eb5f-4d9c-8de3-a0e7fa78e026">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e5d4084-e97d-46d8-85df-67989e8e1a15"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No of Dose]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="610" y="8" width="44" height="30" uuid="ee11d5fa-7ec8-4818-9c0a-a848e2c824d2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7bd03438-9732-47a7-a634-9c349032c69c"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dose]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="682" y="8" width="61" height="30" uuid="eb00b150-3fc2-4380-9975-953d0cb8c404">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="520f3427-8a3b-4ddc-9be1-d84d89dde820"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="758" y="8" width="40" height="30" uuid="35b69540-3716-405d-b59a-bbf075497675">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27e6f02f-51bd-4116-a6a3-746c7bf8c3f7"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<line>
+				<reportElement x="66" y="1" width="1" height="50" uuid="0160848e-0e0e-47ab-bc57-2d4972f9c377"/>
+			</line>
+			<line>
+				<reportElement x="138" y="0" width="1" height="50" uuid="c8c221ec-e468-486d-bfb9-f4d6a7fa73ba"/>
+			</line>
+			<line>
+				<reportElement x="204" y="0" width="1" height="50" uuid="32e206c3-d176-43c3-b36d-c3864939eac3"/>
+			</line>
+			<line>
+				<reportElement x="266" y="0" width="1" height="50" uuid="c4d20c2a-186e-4d86-b9ca-d00d7b07e3a3"/>
+			</line>
+			<line>
+				<reportElement x="343" y="0" width="1" height="50" uuid="b25c7fd7-6287-458e-99d9-d2f2b4adbb18"/>
+			</line>
+			<line>
+				<reportElement x="431" y="0" width="1" height="50" uuid="ae53974e-57f4-4d75-b6ec-9af97626d445"/>
+			</line>
+			<line>
+				<reportElement x="521" y="-1" width="1" height="50" uuid="f7fcc7f1-061e-4cae-a787-4341ba6a12a4"/>
+			</line>
+			<line>
+				<reportElement x="601" y="0" width="1" height="50" uuid="6c2574c5-c2c3-4272-b7b7-8f09cfa8ffe1"/>
+			</line>
+			<line>
+				<reportElement x="669" y="0" width="1" height="50" uuid="60e43ae9-084f-4fd3-818f-df337944aca3"/>
+			</line>
+			<line>
+				<reportElement x="752" y="0" width="1" height="50" uuid="eab4ba14-3e9c-4133-bca0-850143da95b5"/>
+			</line>
+			<line>
+				<reportElement x="807" y="0" width="1" height="50" uuid="6e18c078-cd0d-42b5-9d53-77e430c993d6"/>
+			</line>
+			<line>
+				<reportElement x="-16" y="1" width="1" height="50" uuid="6d4522e8-094b-4e4e-97c7-2af3d5c2601c"/>
+			</line>
+			<line>
+				<reportElement x="-16" y="1" width="824" height="1" uuid="f58e8ebb-6e1e-4b4a-bfa9-ac63749fd9d9"/>
+			</line>
+			<line>
+				<reportElement x="-15" y="46" width="823" height="1" uuid="7dc37edf-e2d7-4532-96b5-c6022266b609"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="-9" y="1" width="63" height="30" uuid="dc13d836-49d2-4019-8d7e-31805bee802c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90ae1bb6-ccad-4183-86d5-df6d59149ef7"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{childrenId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="62" height="30" uuid="3c6d6411-d8f0-4edb-a7f2-121f65b591a7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="800ae977-f5ac-4704-ac10-8a00334515f4"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="0" width="56" height="30" uuid="f420ba2e-90f4-4239-ab65-f92fa1b67498">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22c2dfee-110a-4572-bb0c-1ff58bd1aaab"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{bod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="53" height="30" uuid="db23d487-58e9-42ff-93f9-c36570fcc0ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fda39422-1b4c-419e-bd5f-05ef09d933b1"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="54" height="30" uuid="748d3cd7-55f3-4d42-aa5d-4f20a4473060">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5a15c10-007f-43c7-8632-2fef16ca0f61"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{vacId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="0" width="72" height="30" uuid="f0728b41-ceb1-43e2-ac1c-9bf0a8809b1a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17700c3e-0a99-44df-97ad-547c0d5d56bf"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{vacName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="72" height="30" uuid="37c7b05a-26d3-43eb-aef5-5947e96f2442">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3a0f46b2-cf09-41c3-84ed-10e84661adde"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="533" y="0" width="59" height="30" uuid="56c8183e-e693-480b-b63c-82321f510cd4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e5d4084-e97d-46d8-85df-67989e8e1a15"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{noDose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="613" y="0" width="44" height="30" uuid="687c992a-f8dc-4f9c-a1bb-013d2724663c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7bd03438-9732-47a7-a634-9c349032c69c"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{dose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="0" width="63" height="30" uuid="9e71c5f6-13e0-4c2f-9bd8-d5b908a09e3a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="520f3427-8a3b-4ddc-9be1-d84d89dde820"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="762" y="0" width="37" height="30" uuid="42403f0b-81df-42cc-9251-8746a0438555">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27e6f02f-51bd-4116-a6a3-746c7bf8c3f7"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="0" bottomPadding="11"/>
+				<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="138" y="-6" width="1" height="36" uuid="c29ba9fa-c964-4b95-9eff-bb95fbec4c0f"/>
+			</line>
+			<line>
+				<reportElement x="66" y="-5" width="1" height="36" uuid="a72e6a26-2a38-4b7d-a958-4a43378fd84c"/>
+			</line>
+			<line>
+				<reportElement x="204" y="-6" width="1" height="36" uuid="fa37f7a1-4601-44c2-9e6f-83dd21ea1d62"/>
+			</line>
+			<line>
+				<reportElement x="266" y="-6" width="1" height="36" uuid="21c4aeb4-4d53-440b-bb5b-3557c697adda"/>
+			</line>
+			<line>
+				<reportElement x="343" y="-6" width="1" height="36" uuid="5deacc64-b2a0-45b0-8b30-c68543fd0c2c"/>
+			</line>
+			<line>
+				<reportElement x="431" y="-6" width="1" height="36" uuid="e5f44233-cdb7-4382-b6ce-d9e62cbdb202"/>
+			</line>
+			<line>
+				<reportElement x="521" y="-7" width="1" height="36" uuid="4dcf9f6a-db9c-446f-90fe-633ba72a7335"/>
+			</line>
+			<line>
+				<reportElement x="601" y="-6" width="1" height="36" uuid="f54328b3-7dac-41e7-a3f4-4db476c18deb"/>
+			</line>
+			<line>
+				<reportElement x="669" y="-6" width="1" height="36" uuid="e428b907-cfd5-4514-a060-0e6102fd7b76"/>
+			</line>
+			<line>
+				<reportElement x="752" y="-7" width="1" height="36" uuid="baf8e86a-5e33-493e-8cd6-0ad817c56c6a"/>
+			</line>
+			<line>
+				<reportElement x="807" y="-6" width="1" height="36" uuid="5c24e7f1-3497-4100-87ae-5c4c6b19a86b"/>
+			</line>
+			<line>
+				<reportElement x="-16" y="-5" width="1" height="36" uuid="9db47cc9-6611-4ec2-b27a-66ea6eec6bb8"/>
+			</line>
+			<line>
+				<reportElement x="-16" y="32" width="824" height="1" uuid="33e1f16e-c099-44c4-8955-2adc32b4e56e"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="-3" y="37" width="100" height="30" uuid="d2e8916c-c506-475a-b5fd-7ebf5f807ddd"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["signecher"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-10" y="27" width="101" height="1" uuid="805a68bc-9841-438e-915d-fbeeb90dcaa2"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

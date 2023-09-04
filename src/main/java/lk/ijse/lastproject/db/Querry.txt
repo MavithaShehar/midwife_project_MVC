@@ -1,0 +1,78 @@
+
+DROP DATABASE midwifesystem;
+
+
+CREATE DATABASE IF NOT EXISTS midWifesystem;
+
+USE midWifesystem;
+
+CREATE TABLE user(
+      userId VARCHAR(4) PRIMARY KEY,
+	userName VARCHAR(50) UNIQUE NOT NULL,
+	password VARCHAR(20) NOT NULL,
+	email VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE midWife(
+	midWifeId VARCHAR(4) PRIMARY KEY,
+	nic VARCHAR(12) UNIQUE NOT NULL,
+      name VARCHAR(50) NOT NULL,
+      address VARCHAR(100) NOT NULL,
+      position VARCHAR(50),
+	servesArea VARCHAR(50)
+);
+
+CREATE TABLE midWifeContactDetails(
+	midWifeId VARCHAR(4),
+	contact VARCHAR(12),
+	PRIMARY KEY(midWifeId , contact),
+	FOREIGN KEY(midWifeId) REFERENCES midWife(midWifeId) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE children(
+	midwifeId VARCHAR(4),
+	childrenId VARCHAR(4) PRIMARY KEY,
+        name VARCHAR(50) NOT NULL,
+	bod DATE,
+	gender ENUM('MALE' , 'FEMALE'),
+	age int,
+	birthweight double,
+	hospital VARCHAR(50),
+	motherName VARCHAR(100),
+	fatherName VARCHAR(100),
+        address VARCHAR(100) NOT NULL,
+
+
+
+
+	FOREIGN KEY(midWifeId) REFERENCES midWife(midWifeId) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE bmi(
+	bmiId VARCHAR(4) PRIMARY KEY,
+        childrenId VARCHAR(4),
+	age int,
+	height DECIMAL(3,2),
+	weight DECIMAL(4,2),
+	bmiType DECIMAL(8,2),
+	date DATE,
+	FOREIGN KEY(childrenId) REFERENCES children(childrenId) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE vaccine(
+	vacId VARCHAR(4) PRIMARY KEY,
+	vacName VARCHAR(50),
+	description VARCHAR(50),
+	noDose INT
+);
+
+CREATE TABLE baby_vaccine(
+	childrenId VARCHAR(4),
+	vacId VARCHAR(4),
+	dose INT,
+	date DATE,
+	nextDate DATE,
+	PRIMARY KEY(vacId , childrenId , dose , date),
+	FOREIGN KEY(childrenId) REFERENCES  children(childrenId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(vacId) REFERENCES vaccine(vacId) ON DELETE CASCADE ON UPDATE CASCADE
+);

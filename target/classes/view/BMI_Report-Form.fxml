@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" prefHeight="650.0" prefWidth="1112.0" style="-fx-background-color: #f1f2f6; -fx-background-radius: 50; -fx-border-radius: 50px; -fx-border-color: black; -fx-border-width: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.lastproject.controller.BMIReportFormController">
+   <children>
+      <Label layoutX="508.0" layoutY="14.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: FEF9A7; -fx-background-radius: 45;" text="    BMI Report" AnchorPane.leftAnchor="508.0" AnchorPane.rightAnchor="412.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="79.0" prefHeight="19.0" prefWidth="45.0" text="Year :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtYear" layoutX="89.0" layoutY="74.0" onAction="#inputYearSerchOnAction" stylesheets="@../style/txtFeld.css" />
+      <TableView fx:id="tbelBmiReport" layoutX="46.0" layoutY="179.0" prefHeight="363.0" prefWidth="893.0" style="-fx-border-color: red;" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="63.0">
+        <columns>
+          <TableColumn fx:id="colChildrenId" prefWidth="75.0" text="Children ID" />
+          <TableColumn fx:id="colName" prefWidth="110.0" text="Name" />
+            <TableColumn fx:id="colAge" prefWidth="69.0" text="Age" />
+            <TableColumn fx:id="colDate" prefWidth="134.0" text="Date" />
+            <TableColumn fx:id="colWeight" prefWidth="108.0" text="Weight" />
+            <TableColumn fx:id="colHeight" prefWidth="109.0" text="Height" />
+            <TableColumn fx:id="colBmiReang" prefWidth="110.0" text="BMI Reang" />
+            <TableColumn fx:id="colBmiType" minWidth="0.0" prefWidth="100.0" text="BMI Type" />
+            <TableColumn fx:id="colTriposha" minWidth="0.0" prefWidth="77.0" text="Triposha" />
+        </columns>
+      </TableView>
+      <Button fx:id="getReport" layoutX="845.0" layoutY="549.0" mnemonicParsing="false" onAction="#getReportOnAction" style="-fx-background-color: #4b7bec;" text="Get Report">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="414.0" layoutY="123.0" prefHeight="27.0" prefWidth="149.0" text="Children Count :">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="708.0" layoutY="124.0" prefHeight="27.0" prefWidth="149.0" text="Triposha Count :">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCount" layoutX="568.0" layoutY="122.0" prefHeight="19.0" prefWidth="60.0" text="0000" textFill="#940303">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTcount" layoutX="860.0" layoutY="124.0" prefHeight="27.0" prefWidth="77.0" text="0000" textFill="#8d0505">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
